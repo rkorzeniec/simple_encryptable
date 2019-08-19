@@ -1,42 +1,32 @@
-
-lib = File.expand_path("../lib", __FILE__)
+lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "simple_encryptor/version"
+require 'simple_encryptor/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "simple_encryptor"
-  spec.version       = SimpleEncryptor::VERSION
-  spec.authors       = ["rkorzeniec"]
-  spec.email         = ["r.korzeniec@gmail.com"]
+  spec.name = 'simple_encryptor'
+  spec.version = SimpleEncryptor::VERSION
+  spec.authors = ['Robert Korzeniec']
+  spec.email = ['r.korzeniec@gmail.com']
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
-  spec.license       = "MIT"
+  spec.summary = 'Simple encryption service, without all the extras'
+  spec.description = 'This simple enrtyption service was heavily inspired by https://pawelurbanek.com/rails-secure-encrypt-decrypt'
 
-  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
-  # to allow pushing to a single host or delete this section to allow pushing to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
+  spec.license = 'MIT'
+  spec.homepage = 'https://github.com/rkorzeniec/simple_encryptor/'
+  spec.metadata['source_code_uri'] = 'https://github.com/rkorzeniec/simple_encryptor'
+  spec.metadata['changelog_uri'] = 'https://github.com/rkorzeniec/simple_encryptor/CHANGELOG.md'
 
-    spec.metadata["homepage_uri"] = spec.homepage
-    spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
-    spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
-  else
-    raise "RubyGems 2.0 or newer is required to protect against " \
-      "public gem pushes."
-  end
+  spec.files = `git ls-files -z`.split("\x0")
+  spec.executables = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  spec.test_files = spec.files.grep(%r{^spec/})
+  spec.require_paths = ['lib']
+  spec.required_ruby_version = '>= 2.4'
 
-  # Specify which files should be added to the gem when it is released.
-  # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
-  spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
-    `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
-  end
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  spec.require_paths = ["lib"]
+  spec.add_dependency 'activesupport', '>= 4.2'
 
-  spec.add_development_dependency "bundler", "~> 1.17"
-  spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "rspec", "~> 3.0"
+  spec.add_development_dependency 'bundler', '~> 1.17'
+  spec.add_development_dependency 'minitest', '~> 5.11.3'
+  spec.add_development_dependency 'minitest-profile', '~> 0.0.2'
+  spec.add_development_dependency 'minitest-reporters', '~> 1.3.6'
+  spec.add_development_dependency 'rake', '~> 12.0'
 end
