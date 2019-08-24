@@ -19,6 +19,9 @@ module SimpleEncryptor
       private
 
       def key(arguments = {})
+        raise Error, 'Secret option is missing.' if arguments[:secret].to_s.empty?
+        raise Error, 'Salt option is missing' if arguments[:salt].to_s.empty?
+
         ::ActiveSupport::KeyGenerator
           .new(arguments[:secret])
           .generate_key(arguments[:salt], ActiveSupport::MessageEncryptor.key_len).freeze

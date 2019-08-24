@@ -7,15 +7,13 @@ class User
 
   attr_encryptable :email, secret: 'foo', salt: 'bar'
   attr_encryptable :password, :token, secret: 'baz', salt: 'zab'
+  attr_encryptable :aux
 
-  def initialize(email: nil, password: nil, token: nil)
+  def initialize(email: nil, password: nil, token: nil, aux: nil)
     self.email = email
     self.password = password
     self.token = token
-  end
-
-  def encrypted_email?
-    email?
+    self.aux = aux
   end
 end
 
@@ -75,6 +73,13 @@ describe SimpleEncryptor do
       assert_equal('password', user.password)
       assert(user.token?)
       assert_equal('secret', user.token)
+    end
+
+    it do
+      exception = assert_raises(SimpleEncryptor::Error) do
+        User.new(aux: 'secret')
+      end
+      assert_equal('Secret option is missing.', exception.message)
     end
   end
 end

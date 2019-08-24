@@ -11,6 +11,7 @@ module SimpleEncryptor
   class_methods do
     def attr_encryptable(*attributes)
       options = attributes.last.is_a?(Hash) ? attributes.pop : {}
+
       attributes.each do |attribute|
         define_method("#{attribute}=".to_sym) do |value|
           return if value.nil?

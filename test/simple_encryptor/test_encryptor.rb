@@ -11,6 +11,13 @@ describe SimpleEncryptor::Encryptor do
 
     it { assert_kind_of(String, encrypted_value) }
     it { assert_equal(110, encrypted_value.length) }
+
+    it do
+      exception = assert_raises(SimpleEncryptor::Error) do
+        SimpleEncryptor::Encryptor.encrypt('foo', {})
+      end
+      assert_equal('Secret option is missing.', exception.message)
+    end
   end
 
   describe '.decrypt' do
@@ -21,6 +28,13 @@ describe SimpleEncryptor::Encryptor do
         'foo',
         SimpleEncryptor::Encryptor.decrypt(value, secret: 'bar', salt: 'baz')
       )
+    end
+
+    it do
+      exception = assert_raises(SimpleEncryptor::Error) do
+        SimpleEncryptor::Encryptor.decrypt('foo', {})
+      end
+      assert_equal('Secret option is missing.', exception.message)
     end
   end
 end
