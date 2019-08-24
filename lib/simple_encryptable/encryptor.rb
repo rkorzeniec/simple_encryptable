@@ -3,7 +3,7 @@
 require 'active_support/key_generator'
 require 'active_support/message_encryptor'
 
-module SimpleEncryptor
+module SimpleEncryptable
   class Encryptor
     class << self
       def encrypt(value, options)

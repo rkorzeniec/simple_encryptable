@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-module SimpleEncryptor
+module SimpleEncryptable
   class Error < StandardError; end
 end

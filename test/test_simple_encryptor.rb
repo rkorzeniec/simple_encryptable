@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class User
-  include SimpleEncryptor
+  include SimpleEncryptable
 
   attr_accessor :encrypted_email, :encrypted_password, :encrypted_token
 
@@ -18,7 +18,7 @@ class User
 end
 
 
-describe SimpleEncryptor do
+describe SimpleEncryptable do
   describe '.attr_encryptable' do
     let(:user) { User.new(email: 'john@example.com') }
 
@@ -35,7 +35,7 @@ describe SimpleEncryptor do
     end
 
     it 'encrypts email correctly' do
-      decrypted_email = SimpleEncryptor::Encryptor.decrypt(
+      decrypted_email = SimpleEncryptable::Encryptor.decrypt(
         user.encrypted_email, secret: 'foo', salt: 'bar'
       )
 
@@ -76,7 +76,7 @@ describe SimpleEncryptor do
     end
 
     it do
-      exception = assert_raises(SimpleEncryptor::Error) do
+      exception = assert_raises(SimpleEncryptable::Error) do
         User.new(aux: 'secret')
       end
       assert_equal('Secret option is missing.', exception.message)

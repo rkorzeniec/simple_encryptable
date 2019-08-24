@@ -1,9 +1,9 @@
 require 'test_helper'
 
-describe SimpleEncryptor::Encryptor do
+describe SimpleEncryptable::Encryptor do
   describe '.encrypt' do
     let(:encrypted_value) do
-      SimpleEncryptor::Encryptor.encrypt('foo', secret: 'bar', salt: 'baz')
+      SimpleEncryptable::Encryptor.encrypt('foo', secret: 'bar', salt: 'baz')
     end
 
     it { refute_equal('foo', encrypted_value) }
@@ -13,8 +13,8 @@ describe SimpleEncryptor::Encryptor do
     it { assert_equal(110, encrypted_value.length) }
 
     it do
-      exception = assert_raises(SimpleEncryptor::Error) do
-        SimpleEncryptor::Encryptor.encrypt('foo', {})
+      exception = assert_raises(SimpleEncryptable::Error) do
+        SimpleEncryptable::Encryptor.encrypt('foo', {})
       end
       assert_equal('Secret option is missing.', exception.message)
     end
@@ -22,17 +22,17 @@ describe SimpleEncryptor::Encryptor do
 
   describe '.decrypt' do
     it do
-      value = SimpleEncryptor::Encryptor.encrypt('foo', secret: 'bar', salt: 'baz')
+      value = SimpleEncryptable::Encryptor.encrypt('foo', secret: 'bar', salt: 'baz')
 
       assert_equal(
         'foo',
-        SimpleEncryptor::Encryptor.decrypt(value, secret: 'bar', salt: 'baz')
+        SimpleEncryptable::Encryptor.decrypt(value, secret: 'bar', salt: 'baz')
       )
     end
 
     it do
-      exception = assert_raises(SimpleEncryptor::Error) do
-        SimpleEncryptor::Encryptor.decrypt('foo', {})
+      exception = assert_raises(SimpleEncryptable::Error) do
+        SimpleEncryptable::Encryptor.decrypt('foo', {})
       end
       assert_equal('Secret option is missing.', exception.message)
     end

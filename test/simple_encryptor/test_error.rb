@@ -1,5 +1,5 @@
 require 'test_helper'
 
-describe SimpleEncryptor do
-  it { assert_includes(SimpleEncryptor::Error.ancestors, StandardError) }
+describe SimpleEncryptable do
+  it { assert_includes(SimpleEncryptable::Error.ancestors, StandardError) }
 end

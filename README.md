@@ -1,17 +1,17 @@
-# SimpleEncryptor
+# SimpleEncryptable
 
-SimpleEncryptor is based on Rails encryption mechanisms, it is streamline without all the bells and whistles, only the esentials. Heavilly inspired by [Pawel Urbanek](https://pawelurbanek.com/rails-secure-encrypt-decrypt).
+SimpleEncryptable is based on Rails encryption mechanisms, it is streamline without all the bells and whistles, only the esentials. Heavilly inspired by [Pawel Urbanek](https://pawelurbanek.com/rails-secure-encrypt-decrypt).
 
 ## Installation
 
-Add SimpleEncryptor application's Gemfile:
+Add SimpleEncryptable application's Gemfile:
 
 ```ruby
-gem 'simple_encryptor'
+gem 'simple_encryptable'
 ```
 or
 ```ruby
-gem 'simple_encryptor', '~> 0.1.0'
+gem 'simple_encryptable', '~> 0.1.0'
 ```
 
 And then execute:
@@ -20,16 +20,16 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install simple_encryptor
+    $ gem install simple_encryptable
 
 ## Usage
 With `ActiveRecord` objects, the database must have `encrypted_[attribute]` column(s). With `PORO` objects, `attr_accessor [attribute]` must be provided.
 
-You must include `SimpleEncryptor`, it is not dynamically loaded into all `ActiveRecord` objects. Providing `secret` and `salt` tokens is crutial. Ideally store them in an .env file or using Rails credentials mechanism.
+You must include `SimpleEncryptable`, it is not dynamically loaded into all `ActiveRecord` objects. Providing `secret` and `salt` tokens is crutial. Ideally store them in an .env file or using Rails credentials mechanism.
 
 ```ruby
   class User
-    include SimpleEncryptor
+    include SimpleEncryptable
 
     attr_encryptor :secret_attribute, :another_secret_attribute, secret: 'foo', salt: 'bar'
   end
@@ -38,8 +38,8 @@ You must include `SimpleEncryptor`, it is not dynamically loaded into all `Activ
 ## Contributing
 
 1. [Fork it](https://help.github.com/articles/about-forks/)
-2. Clone the project `git clone git@github.com:[YOUR GITHUB USERNAME]/simple_encryptor.git`
-3. `cd simple_encryptor`
+2. Clone the project `git clone git@github.com:[YOUR GITHUB USERNAME]/simple_encryptable.git`
+3. `cd simple_encryptable`
 4. Install dependencies, `bundle install`
 5. Create your feature branch `git checkout -b my-new-feature`
 6. Write your feature, along with tests for your changes

@@ -1,10 +1,10 @@
 lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'simple_encryptor/version'
+require 'simple_encryptable/version'
 
 Gem::Specification.new do |spec|
-  spec.name = 'simple_encryptor'
-  spec.version = SimpleEncryptor::VERSION
+  spec.name = 'simple_encryptable'
+  spec.version = SimpleEncryptable::VERSION
   spec.authors = ['Robert Korzeniec']
   spec.email = ['r.korzeniec@gmail.com']
 
@@ -12,9 +12,9 @@ Gem::Specification.new do |spec|
   spec.description = 'This simple enrtyption service was heavily inspired by https://pawelurbanek.com/rails-secure-encrypt-decrypt'
 
   spec.license = 'MIT'
-  spec.homepage = 'https://github.com/rkorzeniec/simple_encryptor/'
-  spec.metadata['source_code_uri'] = 'https://github.com/rkorzeniec/simple_encryptor'
-  spec.metadata['changelog_uri'] = 'https://github.com/rkorzeniec/simple_encryptor/CHANGELOG.md'
+  spec.homepage = 'https://github.com/rkorzeniec/simple_encryptable/'
+  spec.metadata['source_code_uri'] = 'https://github.com/rkorzeniec/simple_encryptable'
+  spec.metadata['changelog_uri'] = 'https://github.com/rkorzeniec/simple_encryptable/CHANGELOG.md'
 
   spec.files = `git ls-files -z`.split("\x0")
   spec.executables = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }

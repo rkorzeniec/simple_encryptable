@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 require 'active_support/concern'
-require 'simple_encryptor/error'
-require 'simple_encryptor/encryptor'
-require 'simple_encryptor/version'
+require 'simple_encryptable/error'
+require 'simple_encryptable/encryptor'
+require 'simple_encryptable/version'
 
-module SimpleEncryptor
+module SimpleEncryptable
   extend ActiveSupport::Concern
 
   class_methods do
