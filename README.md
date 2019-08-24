@@ -1,15 +1,17 @@
 # SimpleEncryptor
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/simple_encryptor`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+SimpleEncryptor is based on Rails encryption mechanisms, it is streamline without all the bells and whistles, only the esentials. Heavilly inspired by [Pawel Urbanek](https://pawelurbanek.com/rails-secure-encrypt-decrypt).
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add SimpleEncryptor application's Gemfile:
 
 ```ruby
 gem 'simple_encryptor'
+```
+or
+```ruby
+gem 'simple_encryptor', '~> 0.1.0'
 ```
 
 And then execute:
@@ -21,18 +23,31 @@ Or install it yourself as:
     $ gem install simple_encryptor
 
 ## Usage
+With `ActiveRecord` objects, the database must have `encrypted_[attribute]` column(s). With `PORO` objects, `attr_accessor [attribute]` must be provided.
 
-TODO: Write usage instructions here
+You must include `SimpleEncryptor`, it is not dynamically loaded into all `ActiveRecord` objects. Providing `secret` and `salt` tokens is crutial. Ideally store them in an .env file or using Rails credentials mechanism.
 
-## Development
+```ruby
+  class User
+    include SimpleEncryptor
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+    attr_encryptor :secret_attribute, :another_secret_attribute, secret: 'foo', salt: 'bar'
+  end
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/simple_encryptor.
+1. [Fork it](https://help.github.com/articles/about-forks/)
+2. Clone the project `git clone git@github.com:[YOUR GITHUB USERNAME]/simple_encryptor.git`
+3. `cd simple_encryptor`
+4. Install dependencies, `bundle install`
+5. Create your feature branch `git checkout -b my-new-feature`
+6. Write your feature, along with tests for your changes
+7. Run the tests `rake test`, all must be green
+8. Commit your changes `git commit -am 'Added some feature'`
+9. Push to the branch `git push origin my-new-feature`
+10. Create new [Pull Request](https://help.github.com/articles/creating-a-pull-request/)
+
 
 ## License
 
