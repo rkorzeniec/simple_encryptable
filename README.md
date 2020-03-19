@@ -31,7 +31,7 @@ You must include `SimpleEncryptable`, it is not dynamically loaded into all `Act
   class User
     include SimpleEncryptable
 
-    attr_encryptor :secret_attribute, :another_secret_attribute, secret: 'foo', salt: 'bar'
+    attr_encryptable :secret_attribute, :another_secret_attribute, secret: 'foo', salt: 'bar'
   end
 ```
 
