@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/rkorzeniec/simple_encryptable.svg?branch=master)](https://travis-ci.org/rkorzeniec/simple_encryptable)
-
 # SimpleEncryptable
 
 SimpleEncryptable is based on Rails encryption mechanisms, it is streamline without all the bells and whistles, only the esentials. Heavilly inspired by [Pawel Urbanek](https://pawelurbanek.com/rails-secure-encrypt-decrypt).
