@@ -17,7 +17,7 @@ GEM
     concurrent-ruby (1.1.6)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
-    minitest (5.14.1)
+    minitest (5.14.2)
     minitest-profile (0.0.2)
     minitest-reporters (1.4.2)
       ansi
