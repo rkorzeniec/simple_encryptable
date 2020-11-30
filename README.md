@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/rkorzeniec/simple_encryptable.svg?branch=master)](https://travis-ci.org/rkorzeniec/simple_encryptable)
-
 # SimpleEncryptable
 
 SimpleEncryptable is based on Rails encryption mechanisms, it is streamline without all the bells and whistles, only the esentials. Heavilly inspired by [Pawel Urbanek](https://pawelurbanek.com/rails-secure-encrypt-decrypt).
@@ -39,7 +37,7 @@ You must include `SimpleEncryptable`, it is not dynamically loaded into all `Act
 
 ## Contributing
 
-1. [Fork it](https://help.github.com/articles/about-forks/)
+1. [Fork it](https://github.com/rkorzeniec/simple_encryptable/fork)
 2. Clone the project `git clone git@github.com:[YOUR GITHUB USERNAME]/simple_encryptable.git`
 3. `cd simple_encryptable`
 4. Install dependencies, `bundle install`
@@ -50,6 +48,9 @@ You must include `SimpleEncryptable`, it is not dynamically loaded into all `Act
 9. Push to the branch `git push origin my-new-feature`
 10. Create new [Pull Request](https://help.github.com/articles/creating-a-pull-request/)
 
+## Donating
+If you enjoy using `simple_encryptable`, you are free consider a small donation! 🙂
+[Buy me a cup of coffee](https://paypal.me/rkorzeniec)
 
 ## License
 
