@@ -24,7 +24,7 @@ GEM
       builder
       minitest (>= 5.0)
       ruby-progressbar
-    rake (13.0.1)
+    rake (13.0.3)
     ruby-progressbar (1.10.1)
     thread_safe (0.3.6)
     tzinfo (1.2.7)
