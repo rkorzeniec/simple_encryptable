@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'activesupport', '>= 4.2'
 
-  spec.add_development_dependency 'bundler', '~> 2.1.4'
+  spec.add_development_dependency 'bundler', '~> 2.2.4'
   spec.add_development_dependency 'minitest', '~> 5.14.0'
   spec.add_development_dependency 'minitest-profile', '~> 0.0.2'
   spec.add_development_dependency 'minitest-reporters', '~> 1.4.2'
