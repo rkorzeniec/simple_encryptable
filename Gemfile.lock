@@ -19,13 +19,13 @@ GEM
       concurrent-ruby (~> 1.0)
     minitest (5.14.2)
     minitest-profile (0.0.2)
-    minitest-reporters (1.4.2)
+    minitest-reporters (1.4.3)
       ansi
       builder
       minitest (>= 5.0)
       ruby-progressbar
     rake (13.0.1)
-    ruby-progressbar (1.10.1)
+    ruby-progressbar (1.11.0)
     thread_safe (0.3.6)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
